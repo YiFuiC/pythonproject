@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Product Page</title>
+    </head>
+    <body>
+        <h1>{{ product.Product }}</h1>
+        <h2>{{ product.Description }}</h2>
+        <h2>{{ product.Price }}</h2>
+
+        <br>
+        <form name="submitbid" action="{% url 'product' product.id %}" method="post">
+            {% csrf_token %}
+            {{ bidform }}
+        <input type="submit" value="bid">
+        <h3>Current Highest Bid : {{ highestbid }}</h3>
+
+        <h2>Leave a Review!</h2>
+        <form name="postcomment" action="{% url 'product' product.id %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Save">
+        </form>
+        <ul>
+            {% for comment in comments %}
+            <li>
+                {{ comment.date_added}}
+                <br>
+                {{ comment.Review }}
+                <br>
+                Rating : {{ comment.ratings }}
+            </li>
+            {% empty %}
+            <h2>No Reviews Available</h2>
+            {% endfor %}
+        </ul>
+    </body>
+
+</html>

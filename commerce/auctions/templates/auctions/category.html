@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+    <h2>Categories</h2>
+    <ul>
+        <li>
+            <a class="nav-link" href="{% url 'clothing' %}">Clothing</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{% url 'furniture' %}">Furniture</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{% url 'electronic_items' %}">Electronic Items</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{% url 'household_items' %}">Household Items</a>
+        </li>
+        <li>
+            <a class="nav-link" href="{% url 'toys' %}">Toys</a>
+        </li>
+    </ul>
+{% endblock %}
